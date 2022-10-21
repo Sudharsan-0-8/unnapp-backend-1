@@ -9,10 +9,10 @@ const PORT = 3010;
 
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
-apolloServer.applyMiddleware({ app: app });
+apolloServer.start().then( ()=> apolloServer.applyMiddleware({ app }))
 
 app.get('/test', (req , res) => {
     res.send('test');
 })
 
-app.listen(PORT , () => console.log(`server running at port: ${PORT}`));
+app.listen({ port: PORT } , () => console.log(`server running at port: ${PORT}`));
