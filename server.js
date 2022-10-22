@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const { typeDefs } = require('./schema/typedefs.js');
 const { resolvers } = require('./schema/resolvers.js');
-
+ 
 const app = express();
 app.use(cors());
 const httpServer = http.createServer(app);
