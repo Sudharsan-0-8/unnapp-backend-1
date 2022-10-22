@@ -30,4 +30,4 @@ app.get('/test', (req , res) => {
 
 io.on('connection' , (socket) => console.log(socket.id) );
 
-app.listen({ port: PORT } , () => console.log(`server running at port: ${PORT}`));
+httpServer.listen({ port: PORT } , () => console.log(`server running at port: ${PORT}`));
