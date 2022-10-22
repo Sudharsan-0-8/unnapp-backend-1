@@ -14,15 +14,15 @@ const io = require('socket.io')(
     httpServer , { 
         cors: {
             methods: ['GET', 'POST'],
-            origin: ['https://unnapp-frontend-1--3000.local.webcontainer.io'],
+            origin: ['http://localhost:4010'],
         }
     }
 )
 const PORT = 3010;
 
-// const apolloServer = new ApolloServer({ typeDefs, resolvers });
+const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
-// apolloServer.start().then( () => apolloServer.applyMiddleware({ app }) );
+apolloServer.start().then( () => apolloServer.applyMiddleware({ app }) );
 
 app.get('/test', (req , res) => {
     res.send('test');
