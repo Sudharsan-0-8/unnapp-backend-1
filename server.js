@@ -23,4 +23,6 @@ app.get('/test', (req , res) => {
     res.send('test');
 })
 
+io.on('connection' , (socket) => console.log(socket.id) );
+
 app.listen({ port: PORT } , () => console.log(`server running at port: ${PORT}`));
