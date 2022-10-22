@@ -26,9 +26,9 @@ const io = require('socket.io')(
 )
 const PORT = 3010;
 
-const apolloServer = new ApolloServer({ typeDefs, resolvers });
+// const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
-apolloServer.start().then( () => apolloServer.applyMiddleware({ app }) );
+// apolloServer.start().then( () => apolloServer.applyMiddleware({ app }) );
 
 app.get('/test', (req , res) => {
     res.send('test');
