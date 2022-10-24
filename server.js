@@ -9,6 +9,7 @@ const { resolvers } = require('./schema/resolvers.js');
 // express
 const app = express();
 app.use(cors());
+app.use(express.json());
 //http server
 const httpServer = http.createServer(app);
 
