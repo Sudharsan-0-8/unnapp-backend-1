@@ -32,9 +32,12 @@ app.set('socketio' , io);
 
 // express server routes
 app.get('/test', (req , res) => {
+    res.send('test sucessfull!!');
+});
+app.post('/post-test', (req , res) => {
     console.log(req.body);
-    res.send('test' );
-})
+    res.send('post-test' );
+});
 
 io.on('connection' , (socket) => console.log(socket.id) );
 
