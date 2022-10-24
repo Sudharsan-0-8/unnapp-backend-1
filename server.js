@@ -38,7 +38,7 @@ app.get('/test', (req , res) => {
 app.post('/post-test', (req , res) => {
     console.log('post-test socketId: ' + req.body.socketId);
     const socketId = req.body.socketId;
-    console.log(io.sockets);
+    // console.log(io.sockets);
     const senderSocket = io.sockets.sockets.get(socketId);
     senderSocket.emit('requestGot' , { message: "request reached" });
     res.send('post-test' );
