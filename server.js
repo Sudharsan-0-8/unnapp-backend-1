@@ -32,7 +32,7 @@ app.set('socketio' , io);
 
 // express server routes
 app.get('/test', (req , res) => {
-    console.log(req);
+    console.log(req.body);
     res.send('test' );
 })
 
