@@ -36,7 +36,10 @@ app.get('/test', (req , res) => {
     res.send('test sucessfull!!');
 });
 app.post('/post-test', (req , res) => {
-    console.log('post-test socketId: ' + req.body.message.socketId);
+    console.log('post-test socketId: ' + req.body.socketId);
+    const socketId = req.body.socketId;
+    const senderSocket = io.sockets.connected[socketId];
+    senderSocket.emit('requestGot' , { message: "request reached" });
     res.send('post-test' );
 });
 
