@@ -36,7 +36,7 @@ app.get('/test', (req , res) => {
     res.send('test sucessfull!!');
 });
 app.post('/post-test', (req , res) => {
-    console.log('post-test ' + req.body);
+    console.log('post-test socketId: ' + req.body.message.socketId);
     res.send('post-test' );
 });
 
