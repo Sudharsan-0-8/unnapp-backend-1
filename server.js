@@ -5,11 +5,14 @@ const cors = require('cors');
 
 const { typeDefs } = require('./schema/typedefs.js');
 const { resolvers } = require('./schema/resolvers.js');
- 
+
+// express
 const app = express();
 app.use(cors());
+//http server
 const httpServer = http.createServer(app);
 
+//socket server
 const io = require('socket.io')(
     httpServer , { 
         cors: {
@@ -20,12 +23,17 @@ const io = require('socket.io')(
 )
 const PORT = 3010;
 
+//apollo server
 const apolloServer = new ApolloServer({ typeDefs, resolvers });
-
 apolloServer.start().then( () => apolloServer.applyMiddleware({ app }) );
 
+// express-socket
+app.set('socketio' , io);
+
+// express server routes
 app.get('/test', (req , res) => {
-    res.send('test');
+    console.log(req.body);
+    res.send('test' );
 })
 
 io.on('connection' , (socket) => console.log(socket.id) );
