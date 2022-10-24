@@ -35,7 +35,7 @@ app.get('/test', (req , res) => {
     res.send('test sucessfull!!');
 });
 app.post('/post-test', (req , res) => {
-    console.log(req.body);
+    console.log('post-test ' + req.body);
     res.send('post-test' );
 });
 
